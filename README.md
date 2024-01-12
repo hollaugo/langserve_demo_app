@@ -77,3 +77,9 @@ We also expose port 8080 with the `-p 8080:8080` option.
 ```shell
 docker run -e OPENAI_API_KEY=$OPENAI_API_KEY -p 8080:8080 my-langserve-app
 ```
+
+# Deploying to google cloud run directly 
+
+```shell
+gcloud run deploy langserve-service --source . --port 8080 --allow-unauthenticated --region us-central1 --set-env-vars=OPENAI_API_KEY=<your_openai_api_key>,LANGCHAIN_API_KEY=<your_langchain_key>,LANGCHAIN_TRACING_V2=true,LANGCHAIN_PROJECT=<your_langchain_project>
+```
